@@ -8,14 +8,19 @@ namespace GladiatorFights
         static void Main(string[] args)
         {
             Battle battle = new Battle();
-            battle.Start(battle.GetListWarriors());
+            battle.Start();
         }
     }
 
     class Battle
     {
-        public void Start(List<Warrior> warriors)
+        public void Start(List<Warrior> warriors = null)
         {
+            if (warriors == null)
+            {
+                warriors = GetListWarriors();
+            }
+
             while (warriors.Count > 1)
             {
                 Warrior warrior1;
@@ -47,7 +52,7 @@ namespace GladiatorFights
             Console.ReadKey(true);
         }
 
-        public List<Warrior> GetListWarriors()
+        private List<Warrior> GetListWarriors()
         {
             List<Warrior> warriors = new List<Warrior>();
 
@@ -261,13 +266,14 @@ namespace GladiatorFights
         public override int Attack()
         {
             int chanceScream = 7;
+            int armorAbsorption = 2;
 
             if (Random.Next(0, chanceScream) > 5)
             {
                 Scream();
             }
 
-            return Damage * Random.Next(0, HitChance) - Armor / 2;
+            return Damage * Random.Next(0, HitChance) - Armor / armorAbsorption;
         }
 
         public override void TakeDamage(Warrior warrior)
