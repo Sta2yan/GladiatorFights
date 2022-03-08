@@ -120,7 +120,7 @@ namespace GladiatorFights
 
     abstract class Warrior
     {
-        protected Random random = new Random();
+        protected Random Random = new Random();
         protected int Health;
         protected int Damage;
         protected int Armor;
@@ -161,7 +161,7 @@ namespace GladiatorFights
 
         public override int Attack()
         {
-            return Damage * random.Next(0, HitChance);
+            return Damage * Random.Next(0, HitChance);
         }
 
         public override void TakeDamage(Warrior warrior)
@@ -194,7 +194,7 @@ namespace GladiatorFights
 
         public override int Attack()
         {
-            return Damage * random.Next(0, HitChance);
+            return Damage * Random.Next(0, HitChance);
         }
 
         public override void TakeDamage(Warrior warrior)
@@ -227,7 +227,7 @@ namespace GladiatorFights
 
         public override int Attack()
         {
-            return Damage * random.Next(0, HitChance);
+            return Damage * Random.Next(0, HitChance);
         }
 
         public override void TakeDamage(Warrior warrior)
@@ -262,19 +262,19 @@ namespace GladiatorFights
         {
             int chanceScream = 7;
 
-            if (random.Next(0, chanceScream) > 5)
+            if (Random.Next(0, chanceScream) > 5)
             {
                 Scream();
             }
 
-            return Damage * random.Next(0, HitChance) - Armor / 2;
+            return Damage * Random.Next(0, HitChance) - Armor / 2;
         }
 
         public override void TakeDamage(Warrior warrior)
         {
             if (Health > 0)
             {
-                int damage = warrior.Attack() / random.Next(1, 2) - Armor;
+                int damage = warrior.Attack() / Random.Next(1, 2) - Armor;
 
                 if (damage < 0)
                 {
@@ -309,7 +309,7 @@ namespace GladiatorFights
         {
             int chancePray = 5;
 
-            if (random.Next(0, chancePray) > 2)
+            if (Random.Next(0, chancePray) > 2)
             {
                 Pray();
             }
