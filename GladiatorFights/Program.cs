@@ -18,14 +18,14 @@ namespace GladiatorFights
         {
             while (warriors.Count > 1)
             {
-                Warrior warrior1 = GetWarrior(warriors);
-                Warrior warrior2 = GetWarrior(warriors);
+                Warrior warrior1;
+                Warrior warrior2;
 
-                while (warrior1 == warrior2)
+                do
                 {
                     warrior1 = GetWarrior(warriors);
                     warrior2 = GetWarrior(warriors);
-                }
+                } while (warrior1 == warrior2);
 
                 Console.WriteLine("Встречаем бойцов:");
                 Console.WriteLine();
